@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ページ内容の詳細</title>
+    <style>
+        *{margin: 0;padding: 0;line-height: 1;}
+        body {
+    font-family: Arial,"Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    /*   ここまでフォントファミリー  各OSに適したフォントを用意しておく*/
+    color: #555;
+    /* サイト全体の文字色を定義しておく */
+    letter-spacing: 0.05em;
+    /* サイト全体の文字間を定義しておく */
+
+}
+li {
+    list-style-type: none;
+    /*   liの装飾を削除する 　ul:list-style: none;　でも同じこと */
+}
+a {
+    text-decoration: none;
+    /*   aタグの初期設定。aタグはでデフォルトで持っている下線を消しておく */
+}
+
+img{
+    max-width: 100%;
+    /* 親要素以上に大きくならない */
+    vertical-align: bottom;
+    /* imgは、文字と同等扱いなので、必ず下部に余白（デセンダー）が出来てしまうのを防ぐ。他の防ぐ方法としてインライン要素をブロック要素に変える方法もあり */
+}
+
+.container{
+    position: absolute;
+    max-width: 800px;
+    height: 650px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    z-index: 1;
+}
+#bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+
+h1{
+    line-height: 40px;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 15px;
+    
+}
+
+.content p.txt{
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.content p.link{
+    position: absolute;
+    width: 70%;
+    left: 0;
+    bottom: 20px;
+    margin-left: 15%;
+    height: 60px;
+}
+
+.content p.link a{
+    display: block;
+    line-height: 60px;
+    text-align: center;
+    background-color: #444;
+    color: #fff;
+    border-radius: 10px;
+    
+}
+
+
+    </style>
+</head>
+<body>
+  <div id="bg">
+    <div class="container">
+        <h1>オリジナルサイト　Gatto Father</h1>
+        <div class="content">
+            <p class="txt">
+        １．プロジェクトの概要<br>
+    　　傷を負ったり、不細工だったりするネコを集めた保護猫cafeのサイト<br> 　（ 店舗名：Gatto Father　）※Gattoはイタリア語で”猫“
+        <br>２．クライアント情報（架空）<br>
+　　株式会社ガットファーザー<br>
+　　Via Roma,381,Palermo ITALIA
+       　従業員数：8名　２０１０年設立<br>
+　　いじめられて なつかなかったり、、目つきの悪い猫でも愛情を注げる、<br>　　真の猫好きをターゲットにした保護猫カフェを運営。
+        <br>３．デザインポイント
+<br>　・ 映画「ゴットファーザー」の世界観を反映しています。<br>
+　・マフィアを彷彿させるメインビジュアルに、猫のアイコンが降ってくる
+ギャップ感のあるヘッダーにしました。<br>
+　・ハンバーガーメニューは猫の髭風にアレンジしました。<br>
+　・メンバー紹介にLightboxを使用しています。<br>
+　・コーヒーを飲む猫をホバーすると、猫舌ゆえにコーヒーを吹き出し、<br>Caféメニューに飛ぶ仕掛けにしています。（イラストはオリジナル）<br>
+４．カラーマネジメント
+<br>　　全体にベージュ系で、カフェを連想させる落ち着いたイメージにし、<br>　　Caféメニューページは、コーヒーショップを思わせるブルーを使用しました。
+<br>　　実際の映画「ゴットファーザー」ではロゴなどには使われていませんが、<br>　　劇中の夕日など、連想させるに足る色として、オレンジをキーカラーにしています。<br>
+５．その他<br>
+　　コンセプトや、ブログのコンテンツはオリジナルです。
+猫好きでなくても、<br>　　サイトを見に来てくれる人を増やし、最終的には
+クライアントの優しさを伝えられるようなサイトを目指しました。
+　　　
+
+               
+
+            <p class="link"><a href="index.html">Gatto Father</a></p>
+        </div>
+    </div>
+  </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+
+            function site_show(){
+                $('#bg').fadeIn();
+            }
+            setTimeout(site_show,500);
+
+        });
+
+    </script>    
+</body>
+</html>

@@ -1,0 +1,421 @@
+@use "_reset.scss";
+
+//カラーの登録
+$base_color:#f7e9dc;
+$main_color:#f2dbc2;
+$color_1:#f2efc2;
+$color_2:#bcccc9;
+$color_3:#b9ccb9;
+
+//ブレイクポイントの登録
+$lsp-point:480px;
+$tablet-point:768px;
+$spc-point:900px;
+$lpc-point:1366px;
+
+//mixinの登録
+@mixin lsp {
+    @media(min-width:$lsp-point){
+        @content;
+    }
+}
+@mixin tab {
+    @media(min-width:$tablet-point){
+        @content;
+    }
+}
+@mixin spc {
+    @media(min-width:$spc-point){
+        @content;
+    }
+}
+@mixin lpc {
+    @media(min-width:$lpc-point){
+        @content;
+    }
+}
+//ボタンのアニメーション
+.btn>a{
+    transform: 0.2s;
+    &::after{
+        display: inline-block;
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-top: 1px solid #222;
+        border-right: 1px solid #222;
+        transform: rotate(45deg);
+        margin-left: 30px;
+    }
+    &:hover{
+        transform: translateX(5px);
+    }
+}
+//モバイルファースト
+html{
+    font-size: 62.5%;//remを使うとき。１rem=10pxにする。
+}
+body{
+    font-size: 1.6rem;//16px相当
+    background-color: #fff;
+}
+#g-nav_pc{
+    display: none;//sp時はｐｃ用のnavを隠す
+    @include spc(){
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-color: $base_color;
+        position: sticky;
+        top: 0;
+        ul{
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            align-items: center;
+            li{
+                margin: 0 20px;
+            }
+            a{
+                padding: 14px;
+                color: #222;
+                &:hover{
+                    text-decoration: underline 2px;
+                }
+            }
+        }
+    }
+} 
+//header部分
+header{
+    width: 100%;
+    height: 60px;
+    background-color: $main_color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  h1{
+    font-size: 5.8rem;
+    font-family: 'Marcellus', serif;
+  }
+  #ham-btn{
+    width: 50px;
+    height: 50px;
+    background-color: $main_color ;
+    position: relative;
+    span{
+        display: block;
+        width: 30px;
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transition: .2s;
+        &::before{
+            display: block;
+            content: "";
+            width: 30px;
+            height: 2px;
+            background-color: #000;
+            position: absolute;
+            top: -20px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: .3s;
+        }
+        &::after{
+            display: block;
+            content: "";
+            width: 30px;
+            height: 2px;
+            background-color: #000;
+            position: absolute;
+            top: 0px;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: .3s;
+        }
+    }
+    @include spc(){
+        display: none;
+    }
+  }
+  #ham-btn.is-active{
+   span{
+    background-color: transparent;
+    &::before{
+        transform: rotate(45deg);
+        top: 0;
+    }
+    &::after{
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+   }
+  }
+  @include spc(){
+    position: static;
+    height: auto;
+    display: block;
+    h1{
+        font-size: 3.6rem;
+        padding: 20px 0;
+        text-align: center;
+    }
+  }
+}
+
+#g-nav_sp{
+    display: none;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: $color_1;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    padding: 40px;
+    z-index: 10;
+    li{
+        margin-bottom: 20px;
+        a{
+            // background-color: #ccc;
+            display: block;
+            padding: 30px 14px 0;
+            color: #222;
+            border-bottom: 1px solid #000;
+            
+        }
+    }
+}
+
+.container{
+    padding: 70px 10px 10px;
+    @include spc(){
+        padding: 10px;
+    }
+}
+//contents部分
+.contents-box{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+
+    .content-img{
+        width: 100%;
+        height: 220px;
+
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .content-txt{
+        background-color: $color_1;
+        padding: 40px;
+    h2{
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+    .txt{
+        margin-bottom: 10px;
+        line-height: 1.6r;
+    }
+    .contents-btn{
+        width: 80%;
+        margin: 0 auto 20px;
+        a{
+            display: block;
+            padding: 14px 0;
+            text-align: center;
+            background-color: rgb(219, 219, 219);
+        }
+    }
+    }/* ここまで1個目のbox */
+    &:nth-of-type(2){
+        .content-txt{
+            background-color: $color_2;
+        }
+    }
+    &:nth-of-type(3){
+        .content-txt{
+            background-color: $color_3;
+        }
+    }
+    //&=親要素
+ @include tab(){
+    //768px以上の時の.contents-box
+    flex-direction: row-reverse;/* 写真を左に */
+    justify-content: space-between;
+    .content-img{
+        width: calc((100% - 10px) /3 *2);
+        height: 400px;
+        @include spc(){
+            height: 600px;
+        }
+    }
+    .content-txt{
+        width: calc((100% - 10px) /3 );
+        padding-top: 50px;
+        h2,p{
+            margin-bottom: 30px;
+        }
+    }
+    &:nth-of-type(2){
+        flex-direction: row;
+    }
+ }
+}
+
+//col-1部分
+.col-1{
+    padding: 40px 20px;
+    background-color: $main_color;
+    margin-bottom: 10px;
+    h2{
+        margin-bottom: 20px;
+        font-size: 2.0rem;
+    }
+    p{
+        line-height: 1.7;
+    }
+    @include spc(){
+        padding: 100px 40px;
+        text-align: center;
+    }
+}
+
+//col-3-wrapper部分
+.col-3-wrapper{
+
+
+    
+ .col-3-box{
+    margin-bottom: 10px;
+    .col-3-img{
+        width: 100%;
+        height: 180px;
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .col-3-icon{
+        padding: 20px;
+        background-color: $color_1;
+        h3{
+         text-align: center;
+         font-size: 2rem;
+        }
+       .icon{
+        width: 70px;
+        height: 70px;
+        background-color: #fff;
+        border-radius: 50%;
+        padding: 14px;
+        margin: 20px auto;
+        }
+     .col-3-btn{
+        width: 60%;
+        margin: 0 auto 10px;
+        a{
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+            color: #222;
+            background-color: rgb(219, 219, 219);
+         }
+      }
+    }
+        &:nth-of-type(2){
+        .col-3-icon{
+            background-color: $color_2;
+          }
+        }
+        &:nth-of-type(3){
+        .col-3-icon{
+            background-color: $color_3;
+          }
+        }
+    @include lsp(){
+        //48px以上の時の.col-3-box
+        display: flex;
+        .col-3-img{
+            width: 50%;
+            height: 240px;
+        }
+        .col-3-icon{
+            width: 50%;
+        }
+    }
+ }
+ @include spc(){
+    //900px以上の時の.col-3-wrapper
+    display: flex;
+    justify-content: space-between;
+    .col-3-box{
+        display: block;
+        .col-3-img{
+            width: 100%;
+            height: 240px;
+        }
+        .col-3-icon{
+            width: 100%;
+            height: 340px;
+            padding-top: 60px;
+        }
+    }
+ }
+}
+
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: $main_color;
+}
+footer>p{
+    text-align: center;
+    padding-top: 120px;
+}
+
+//ローディングアニメ
+#curtain{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(212, 162, 162);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    #svg-box{
+        width: 40%;
+        margin: 300px auto 0;
+    }
+}
+#layer path{
+    fill:#fff;//塗りの色 curtainの色と同じ色
+    stroke: #fff;//線の色
+    stroke-width: 1px;//線の幅
+    stroke-dasharray: 300px;//破線
+    stroke-dashoffset: 300px;
+    animation: txt 3s 0.5s linear forwards;
+}
+@keyframes txt{
+    0%{stroke-dashoffset: 300px;}
+    80%{stroke-dashoffset: 0;fill: rgb(212, 162, 162)}
+    100%{stroke-dashoffset: 0;fill:#fff}
+}

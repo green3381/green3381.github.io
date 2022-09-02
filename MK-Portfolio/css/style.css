@@ -1,0 +1,318 @@
+@charset "UTF-8";
+
+
+html,body,h1,h2,h3,ul,li,p{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+
+body{
+    font-family: "Hiragino Kaku Gothic Pro",  Meiryo, sans-serif;
+    color: #444;
+    background-color: #eef0d0;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+img{
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+/* reset and initial */
+
+header{
+    background-color: #e2e9a8;
+}
+
+header .logo{
+    padding: 17px 0;
+}
+
+header .logo h1{
+    padding: 0 0 5px 20px;
+    font-size: 30px;
+    font-family: 'Della Respira', serif;
+}
+
+header .logo .digest{
+    padding: 20px 0 0 20px;
+    font-family: 'Splash', cursive;
+    font-size: 30px;
+}
+
+header .main_image{
+    height: 250px;
+
+    /* background-color: #888; */
+    background-image: url(../img/main.jpg);
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+nav.sp{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(119, 119, 119, 0.6);
+    margin-bottom: 20px;
+    /* display: none; */
+    transform: translateX(100%);
+    transition: 0.3s;
+}
+
+nav li{
+    line-height: 50px;
+    text-align: center;
+    background-color: rgba(63, 62, 62, 0.5);
+}
+
+nav a{
+    display: block;
+    color: #eee;
+    letter-spacing: 0.1em;
+}
+
+nav.drawer{
+    transform: translateX(0);
+}
+
+nav.pc{
+    display: none;
+}
+/*------------------------
+    burger menu setting
+------------------------*/
+
+#burger {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    /* position: absolute; */
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+
+  }
+  
+#burger span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    transition: .4s;
+    top: 0;
+    left: 0;
+    border-top: 1px solid #333;
+}
+
+#burger span:nth-child(2) {
+    top: 25%;
+}
+
+#burger span:nth-child(3) {
+    top: 50%;
+}
+
+#burger span:nth-child(4) {
+    text-align: center;
+    top: 75%;
+    font-size: 11px;
+    border: none;
+  }
+  
+
+  
+
+  
+  #burger.active > span:nth-child(1) {
+    top: 25%;
+    transform: rotate(-45deg);
+  }
+  
+  #burger.active > span:nth-child(2) {
+    opacity: 0;
+
+  }
+  
+  #burger.active > span:nth-child(3) {
+      top: 25%;
+    transform: rotate(45deg);
+  }
+
+
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.main{
+    padding: 0 10px;
+
+}
+
+.box{
+    margin-bottom: 100px;
+}
+
+.box>h2{
+    font-size: 22px;
+    padding: 15px 0 15px 20px;
+    border-left: 5px solid #333;
+    background-color: #e2e9a8;
+    margin-bottom: 20px;
+    font-family: 'Della Respira', serif;
+}
+
+
+/* .box p{
+    padding: 0 50px 60px;
+    line-height: 1.8;
+} */
+
+
+.box .item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.box .item h3{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.box .item .photo{
+    width: 45%;
+}
+
+.box .item .txt{
+    width: 50%;
+}
+
+.box .item .txt p{
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+footer{
+    background-color: #e2e9a8;
+}
+
+footer>p{
+    text-align: center;
+    line-height: 250px;
+}
+
+#toTop{
+    position: fixed;
+    right: 5%;
+    bottom: 50px;
+    width: 60px;
+    height: 60px;
+    background-color: #666;
+    text-align: center;
+    line-height: 60px;
+    font-size: 14px;
+    color: #fff;
+    display: none;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width:768px) {
+
+    header .logo{
+        padding: 30px 0;
+    }
+
+    header .logo h1{
+        padding:0 0 7px 20px;
+        font-size: 50px;
+    
+    }
+
+    header .main_image{
+        height: 400px;
+        /* margin-bottom: 20px; */
+    }
+
+
+
+    nav.sp{
+        display: none;
+    }
+
+
+    
+    nav.pc{
+        position: sticky;
+        top:0;
+        left:0;
+        height: auto;
+        background-color: #86b47d;
+        display: block;
+        /* display: block !important; */
+        margin-bottom: 20px;
+    }
+
+    nav ul{
+        display: flex ;
+        justify-content:end;
+    }
+
+    nav li{
+        width: 20%;
+        line-height: 60px;
+        background-color: transparent;
+
+    }
+    
+    nav a{
+        color: rgb(0, 0, 0);
+        transition: 0.4s;
+    }
+
+    nav a:hover{
+        background-color: #777;
+        color: #fff;
+    }
+
+    #burger{
+        display: none;
+    }
+
+    .main{
+        padding: 0 5px;
+    
+    }
+
+    .box .item h3{
+        font-size: 18px;
+    }
+
+    .box .item .photo{
+        width: 30%;
+    }
+    
+    .box .item .txt{
+        width: 60%;
+    }
+ 
+    .box .item .txt p{
+        font-size: 16px;
+    }
+    
+}
+

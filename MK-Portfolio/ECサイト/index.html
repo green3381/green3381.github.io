@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北欧のEC-site風ページ</title>
+    <link rel="stylesheet" href="css/style.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+</head>
+<body>
+   <header>
+    <h1>Furniture-store</h1>
+    <p id="ham-btn"><span></span></p>
+   </header>
+   <nav id="g-nav_sp"> <!-- 最初からnavを２つ作っておくとレスポンシブしやすい -->
+     <ul>
+        <li><a href="#">Brands</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="#">Catalogs</a></li>
+        <li><a href="#">Styling tips</a></li>
+        <li><a href="#">Partners & Press</a></li>
+     </ul>
+   </nav>
+   <nav id="g-nav_pc">
+    <ul>
+       <li><a href="#">Brands</a></li>
+       <li><a href="#">Products</a></li>
+       <li><a href="#">Stores</a></li>
+       <li><a href="#">Catalogs</a></li>
+       <li><a href="#">Styling tips</a></li>
+       <li><a href="#">Partners & Press</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <main>
+       <div class="contents">
+        <div class="contents-box">
+            <div class="content-txt">
+              <h2>Lorem, ipsum dolor.</h2>
+              <p class="txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, sunt incidunt. Necessitatibus similique quam ex.</p>
+              <p class="btn contents-btn"><a href="#">more</a></p>
+            </div><!-- /content-txt -->
+            <div class="content-img">
+              <img src="img/main-01.jpg" alt="">
+            </div><!-- /content-img -->
+        </div><!-- /contrnts-box -->
+
+        <div class="contents-box">
+            <div class="content-txt">
+              <h2>Lorem, ipsum dolor.</h2>
+              <p class="txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, sunt incidunt. Necessitatibus similique quam ex.</p>
+              <p class="btn contents-btn"><a href="#">more</a></p>
+            </div><!-- /content-txt -->
+            <div class="content-img">
+              <img src="img/main-02.jpg" alt="">
+            </div><!-- /content-img -->
+        </div><!-- /contrnts-box -->
+
+        <div class="contents-box">
+            <div class="content-txt">
+              <h2>Lorem, ipsum dolor.</h2>
+              <p class="txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, sunt incidunt. Necessitatibus similique quam ex.</p>
+              <p class="btn contents-btn"><a href="#">more</a></p>
+            </div><!-- /content-txt -->
+            <div class="content-img">
+              <img src="img/main-03.jpg" alt="">
+            </div><!-- /content-img -->
+        </div><!-- /contrnts-box -->
+       </div><!-- /contents -->
+
+      <div class="col-1">
+         <h2>Lorem ipsum, dolor sit <br class="sp-on"> amet consectetur adipisicing elit.</h2>
+       
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis natus tempora corrupti, obcaecati officia eius   consequatur pariatur quaerat.</p>
+      </div><!-- /col-1 -->
+
+      <div class="col-3-wrapper">
+        <div class="col-3-box">
+            <div class="col-3-img">
+                <img src="img/col-1.jpg" alt="">
+            </div><!-- /col-3-img -->
+            <div class="col-3-icon">
+               <h3>Lorem, ipsum.</h3>
+               <p class="icon"><img src="img/icon-1.svg" alt=""></p>
+               <p class="btn col-3-btn"><a href="#">more</a></p>
+            </div><!-- /col-3-icon -->
+        </div><!-- /col-3-box -->
+
+        <div class="col-3-box">
+            <div class="col-3-img">
+                <img src="img/col-2.jpg" alt="">
+            </div><!-- /col-3-img -->
+            <div class="col-3-icon">
+               <h3>Lorem, ipsum.</h3>
+               <p class="icon"><img src="img/icon-2.svg" alt=""></p>
+               <p class="btn col-3-btn"><a href="#">more</a></p>
+            </div><!-- /col-3-icon -->
+        </div><!-- /col-3-box -->
+
+        <div class="col-3-box">
+            <div class="col-3-img">
+                <img src="img/col-3.jpg" alt="">
+            </div><!-- /col-3-img -->
+            <div class="col-3-icon">
+               <h3>Lorem, ipsum.</h3>
+               <p class="icon"><img src="img/icon-3.svg" alt=""></p>
+               <p class="btn col-3-btn"><a href="#">more</a></p>
+            </div><!-- /col-3-icon -->
+        </div><!-- /col-3-box -->
+      </div><!-- /col-3-wrapper -->
+    </main>
+
+    <footer>
+      <p><small>&copy; Furniture-store all right reserved.</small></p>
+    </footer>
+    
+  </div>
+
+  <div id="curtain">
+    <div id="svg-box">
+      
+    </div><!-- /.svg -->
+  </div><!-- /.curtain -->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
+  <script src="js/jquery.cookie.js"></script>
+    <script>
+        $(function(){
+            //ham-btnをon.clickしたら
+            $('#ham-btn').on('click',function(){
+              $(this).toggleClass('is-active');
+              $('#g-nav_sp').slideToggle(300);
+            });
+
+            if($.cookie('access')){
+            //既にアクセス済みの場合はカーテンを非表示
+            $('#curtain').hide();
+            }else{
+            //初アクセスの場合はカーテンをfadeOutさせる
+            $('#curtain').delay(4000).fadeOut(400);
+            }
+
+            //カーテン
+            $('#curtain').delay(3000).fadeOut(1000);
+
+            //ファイルがロードされたら
+           $(window).on('load',function(){
+           $.cookie('access',$('body').addClass('access'),{
+           expires: 1 //指定しない場合は現在のセッションのみ保持される(ブラウザを閉じると消える)。
+           });
+           });
+
+          //ajaxでsvgを呼び出す
+          $.ajax({
+          url: 'logo.svg',//ここにsvgファイルのパスを入れる
+          })
+         .then(
+          // 1つめは通信成功時の処理
+          function(data){
+	        var svg = $(data).find('svg');
+           $('#svg-box').append(svg);
+          },
+         // 2つめは通信失敗時の処理
+         function(){
+	       alert('読み込み失敗');
+         });
+        });
+    </script>
+
+</body>
+</html>
